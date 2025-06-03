@@ -1,0 +1,184 @@
+
+/** ADD CAR **/
+section#add,
+section#car {
+    width: 650px;
+    max-width: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    margin: 75px auto;
+    border: 1px solid #E7E7E7;
+    padding: 50px 80px;
+}
+
+section#add a,
+section#car a {
+    color: #8A8A8A;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+section#add h1,
+section#car h1 {
+    color: #191919;
+    font-size: 25px;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.input input,
+.input textarea,
+.input select {
+    border: 1px solid #E7E7E7;
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 35px;
+    margin-top: 10px;
+}
+
+.input label {
+    color: #8A8A8A;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.input textarea {
+    min-height: 150px;
+}
+
+button.btn-add {
+    background: #008F4E;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    padding: 25px;
+}
+
+.flex-input {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.flex-input>div {
+    width: 50%;
+}
+
+/** CAR **/
+p.description-car {
+    color: #8A8A8A;
+    font-weight: 600;
+}
+
+.advantages {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.single-advantage {
+    color: #8A8A8A;
+    font-weight: 600;
+}
+
+hr {
+    border: none;
+    background: #E7E7E7;
+    height: 1px;
+    margin-bottom: 50px;
+}
+
+.legal-information {
+    color: #8A8A8A;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+section#car {
+    width: 750px;
+}
+
+.total-rent {
+    margin-bottom: 50px;
+    color: #191919;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.total-rent span {
+    font-weight: 400;
+    font-size: 25px;
+    font-family: 'Anton', sans-serif;
+}
+
+section#insurances {
+    background: linear-gradient(125.26deg, #008F4E 38.15%, #00B060 82.59%);
+    padding: 75px;
+    text-align: center;
+}
+
+section#insurances h2 {
+    font-weight: 400;
+    font-size: 30px;
+    color: #FBFEDA;
+    margin-bottom: 65px;
+}
+
+.single-insurance {
+    background: #E7E7E7;
+    width: 380px;
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 20px 20px 20px 45px;
+    text-align: left;
+}
+
+.insurances-list {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.single-insurance>img {
+    display: block;
+    margin-left: auto;
+}
+
+.single-insurance p {
+    color: #8A8A8A;
+    font-size: 14px;
+}
+
+.single-insurance h3 {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.single-advantage img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.single-insurance p {
+    display: flex;
+    align-items: flex-start;
+    filter: grayscale(1);
+    gap: 15px;
+}
+
+.single-insurance p img {
+    margin-top: 5px;
+}

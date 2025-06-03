@@ -3,13 +3,15 @@
         <a href="index.html"><img src="{{asset('./img/logo.png')}}" alt="Vehicloc" /></a>
         <a href="add.html" class="btn-nav">Ajouter une voiture</a>
     </nav>
-    <div class="flex-header">
-        <div>
-            <h1>Location de voitures à Saint-Étienne</h1>
-            <p>Un service de location de voitures au mois pour répondre à vos besoins de mobilité.</p>
+    {% if app.request.attributes.get('_route') == 'app_home' %}
+        <div class="flex-header">
+            <div>
+                <h1>Location de voitures à Saint-Étienne</h1>
+                <p>Un service de location de voitures au mois pour répondre à vos besoins de mobilité.</p>
+            </div>
+            <div>
+                <img src="{{asset('./img/car.png')}}" alt="Voiture">
+            </div>
         </div>
-        <div>
-            <img src="{{asset('./img/car.png')}}" alt="Voiture">
-        </div>
-    </div>
+    {% endif %}
 </header>
