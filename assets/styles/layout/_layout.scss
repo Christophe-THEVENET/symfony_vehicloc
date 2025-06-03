@@ -14,3 +14,21 @@ h2,
 h3 {
     font-family: 'Anton', sans-serif;
 }
+.toast-container {
+    position: fixed;
+    top: 20rem;
+    right: 1rem;
+    z-index: 1050;
+}
+
+.toast {
+    min-width: 200px;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+    transition: opacity 0.5s;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background-color: rgba(140, 255, 0, 0.436);
+    padding: 5px 10px;
+    text-align: center;
+}
