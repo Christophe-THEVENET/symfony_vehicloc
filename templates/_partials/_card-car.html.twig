@@ -1,7 +1,7 @@
    <article>
             <div class="mini-car-title">
                 <a href="car.html">
-                    <h3>Renault Twingo</h3>
+                    <h3>{{car.name}}</h3>
                     <p>ou similaire | Saint-Étienne</p>
                 </a>
                 <div>
@@ -11,11 +11,15 @@
             <div class="mini-car-icons">
                 <div>
                     <img src="{{asset('./icons/persons.png')}}" alt="4 places" />
-                    <p>4 places</p>
+                    <p>{{car.numberOfPlaces}} places</p>
                 </div>
                 <div>
                     <img src="{{asset('./icons/motor.png')}}" alt="Manuelle" />
+                    {% if car.manualGearbox %}
+                        <p>Automatique</p>
+                    {% else %}
                     <p>Manuelle</p>
+                    {% endif %}
                 </div>
                 <div>
                     <img src="{{asset('./icons/km.png')}}" alt="km illimités" />
@@ -27,7 +31,7 @@
                 </div>
             </div>
             <div class="mini-car-price">
-                <p class="price-per-day">39,14 € / jour</p>
-                <p class="price-per-month">900,00 € / mois</p>
+                <p class="price-per-day">{{car.dailyPrice}} € / jour</p>
+                <p class="price-per-month">{{car.monthlyPrice}} € / mois</p>
             </div>
         </article>

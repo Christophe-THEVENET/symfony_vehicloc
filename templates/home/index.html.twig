@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
-
 
 <section id="fleet">
     <h2>Découvrez la flotte de véhicules chez Véhicloc</h2>
     <p>Que vous ayez besoin d'une petite citadine agile, d'une berline élégante ou même d'un SUV spacieux, nous avons une variété de véhicules  pour répondre à vos exigences.</p>
     <div class="fleet-list">
+   
+     {% for car in cars %}
 
-     
-       
+
+     {% include "./_partials/_card-car.html.twig" %}
+
+
+     {% endfor %}
         
     </div>
 </section>
