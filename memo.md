@@ -50,3 +50,23 @@ après déploiement
 php bin/console importmap:install
 
 on peut importer toutes les librairies npm xxxxxxxx
+
+## Data fixtures
+
+```console
+symfony composer require orm-fixtures zenstruck/foundry --dev
+```    
+
+```console    
+symfony console make:factory
+```    
+
+pour mettre le faker en français
+
+config/packages/zenstruck_foundry.yaml
+
+when@dev: &dev
+    zenstruck_foundry:
+        # …
+        faker:
+            locale: fr_FR
