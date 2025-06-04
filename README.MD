@@ -1,6 +1,6 @@
 # Véhicloc   
 
-## Formation Bootcamp avancé Synfony OpenClassRooms
+## Formation Bootcamp avancé Symfony OpenClassRooms
 
 ### Exercice 1 - Faites vos premiers pas avec Symfony 7
 
