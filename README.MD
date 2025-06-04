@@ -1,0 +1,64 @@
+# Véhicloc   
+
+## Formation Bootcamp avancé Synfony OpenClassRooms
+
+### Exercice 1 - Faites vos premiers pas avec Symfony 7
+
+
+L’entreprise VéhiLoc, spécialisée dans la location de voiture, fait appel à vous pour mettre à jour son site web.
+
+ 
+Youssef, le gérant, souhaite faire deux modifications sur le parc de voitures affichées sur le site : 
+
+Ajouter de nouvelles voitures via le formulaire présent sur le site (inactif actuellement).
+Supprimer des voitures existantes.
+ 
+
+Pour réaliser cette mise à jour, vous allez devoir rendre le site dynamique, en utilisant le framework Symfony. 
+
+ 
+
+Pour y parvenir, Youssef vous fournit le code du site web actuel.
+
+
+## Prérequis
+
+
+* PHP 8.1.0 ou plus;
+
+* Symfony 7.0.0 ou plus;
+  
+* Composer;
+
+* MySQL/MariaDB;
+
+
+
+## Installation
+
+
+  `git clone https://github.com/Christophe-THEVENET/vehicloc.git`
+
+`cd vehicloc/`
+
+`composer install`
+
+`cp .env .env.local` > configurer le DNS de la base de données
+
+`php bin/console c:c `
+
+`php bin/console doctrine:database:create`
+
+`php bin/console doctrine:migrations:migrate`
+
+`php bin/console doctrine:fixtures:load`
+
+`php bin/console asset-map:compile`
+
+
+## Utilisation
+
+
+`symfony server:start`
+
+url: localhost:8000

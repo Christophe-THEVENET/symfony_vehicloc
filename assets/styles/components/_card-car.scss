@@ -1,0 +1,61 @@
+article {
+    width: 380px;
+    flex-shrink: 0;
+    border: 1px solid #E7E7E7;
+    background: white;
+    padding: 35px 25px;
+    box-sizing: border-box;
+    margin-bottom: 35px;
+    max-width: 95%;
+}
+
+.mini-car-title h3 {
+    margin-top: 0;
+    font-weight: 400;
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.mini-car-title p {
+    color: #8A8A8A;
+}
+
+.mini-car-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.mini-car-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    color: #8A8A8A;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.mini-car-icons img {
+    max-width: 28px;
+    max-height: 28px;
+}
+
+p.price-per-day {
+    color: #008F4E;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+p.price-per-month {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.mini-car-price p {
+    font-weight: 400;
+    font-family: 'Anton', sans-serif;
+}

@@ -4,16 +4,46 @@
         <meta charset="UTF-8">
         <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Véhiloc{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+       {#  Toastify #}
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
+        {% endblock %}
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
+            
+
+        {% include "./_partials/header.html.twig" %}
         {% block body %}{% endblock %}
+
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <script>
+                Toastify({
+                    text: "{{ message|e('js') }}",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "linear-gradient(to right,rgb(105, 232, 215),rgb(77, 102, 227))",
+                }).showToast();
+            </script>
+        {% endfor %}
+    {% endfor %} 
+
+
+
+    
+        {% include "./_partials/footer.html.twig" %}
+
+        
     </body>
 </html>
