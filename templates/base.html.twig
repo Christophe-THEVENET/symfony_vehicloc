@@ -26,12 +26,18 @@
 
     {% for label, messages in app.flashes %}
         {% for message in messages %}
-            <script type="module">
-                import { showToast } from "{{ asset('js/toast.js') }}";
-                showToast("{{ message|e('js') }}");
+            <script>
+                Toastify({
+                    text: "{{ message|e('js') }}",
+                    duration: 3000,
+                    close: true,
+                    gravity: "top",
+                    position: "right",
+                    backgroundColor: "linear-gradient(to right,rgb(105, 232, 215),rgb(77, 102, 227))",
+                }).showToast();
             </script>
         {% endfor %}
-    {% endfor %}
+    {% endfor %} 
 
 
 
