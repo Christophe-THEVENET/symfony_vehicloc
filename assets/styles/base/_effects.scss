@@ -1,0 +1,36 @@
+.toastify {
+    top: 20% !important;
+    transform: translateY(-50%);
+}
+
+.toastify.on {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+.toastify.toastify-leave {
+    animation: slideOutRight 0.5s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
