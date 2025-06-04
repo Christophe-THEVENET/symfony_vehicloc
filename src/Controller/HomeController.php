@@ -21,6 +21,7 @@ final class HomeController extends AbstractController
         if (empty($cars)) {
             $this->addFlash('warning', 'No cars available at the moment.');
         }
+
         return $this->render('home/index.html.twig', [
             'cars' => $cars
         ]);
@@ -34,7 +35,7 @@ final class HomeController extends AbstractController
         ]);
     }
     /* ******************* DELETE ******************* */
-    #[Route('/delete/{id}', name: 'app_car_delete', requirements: ['id' => '\d+'], methods: ['GET'])]
+    #[Route('/delete/{id}', name: 'app_car_delete', requirements: ['id' => '\d+'])]
     public function remove(?Car $car, EntityManagerInterface $em): Response
     {
         if (!$car) {
@@ -50,7 +51,6 @@ final class HomeController extends AbstractController
     }
 
     // ***************************** NEW *********************************
-    // ***************************** EDIT *********************************
     #[Route('/new', name: 'app_car_new', methods: ['GET', 'POST'])]
     #[Route('/edit/{id<\d+>}', name: 'app_car_edit', methods: ['GET', 'POST'])]
     public function new(?Car$car, Request $request, EntityManagerInterface $em): Response

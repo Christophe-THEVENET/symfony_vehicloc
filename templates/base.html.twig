@@ -6,49 +6,19 @@
           content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Véhiloc{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <!-- Intégrer le CSS de Toastify -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
-      
         {% endblock %}
-
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
-           
         {% endblock %}
     </head>
     <body>
        
         {% include "./_partials/header.html.twig" %}
-        {% block body %}
-
-    {# Script pour afficher le toast si un flash message "success" existe #}
-    <script>
-        // On attend que le DOM soit complètement chargé
-        document.addEventListener('DOMContentLoaded', function () {
-        {% for message in app.flashes('success') %}
-            Toastify({
-            text: "{{ message|e('js') }}",  // Le contenu du message
-            duration: 4000,                // Durée d'affichage en millisecondes (4000 ms = 4 secondes)
-           background: "#28a745",
-            position: "fixed",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)"
-   // Couleur de fond (vert par exemple)
-            stopOnFocus: true,             // Permet au toast de rester visible lorsque la souris le survole
-            }).showToast();
-        {% endfor %}
-        });
-    </script>
-
-        
-    {% endblock %}
+        {% block body %}{% endblock %}
         {% include "./_partials/footer.html.twig" %}
 
-<!-- Intégrer le JavaScript de Toastify avant la fermeture du body -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         
     </body>
 </html>
