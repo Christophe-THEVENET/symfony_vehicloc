@@ -70,3 +70,8 @@ when@dev: &dev
         # …
         faker:
             locale: fr_FR
+
+
+composer require symfony/validator
+
+

@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Form\CarType;
 use App\Repository\CarRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -15,7 +17,7 @@ final class HomeController extends AbstractController
     #[Route('/', name: 'app_home', methods: ['GET'])]
     public function index(CarRepository $repository): Response
     {
-        $cars = $repository->findAll();
+        $cars = $repository->findBy([], ['id' => 'DESC']);
         if (empty($cars)) {
             $this->addFlash('warning', 'No cars available at the moment.');
         }
@@ -45,5 +47,31 @@ final class HomeController extends AbstractController
 
         $this->addFlash('success', 'Voiture supprimée.');
         return $this->redirectToRoute('app_home');
+    }
+
+    // ***************************** NEW *********************************
+    // ***************************** EDIT *********************************
+    #[Route('/new', name: 'app_car_new', methods: ['GET', 'POST'])]
+    #[Route('/edit/{id<\d+>}', name: 'app_car_edit', methods: ['GET', 'POST'])]
+    public function new(?Car$car, Request $request, EntityManagerInterface $em): Response
+    {
+
+    
+        $car ??= new Car();
+        $form = $this->createForm(CarType::class, $car);
+
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $em->persist($car);
+            $em->flush();
+
+            return $this->redirectToRoute('app_car_show', ['id' => $car->getId()], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('home/car-new.html.twig', [
+            'form' => $form,
+        ]);
     }
 }

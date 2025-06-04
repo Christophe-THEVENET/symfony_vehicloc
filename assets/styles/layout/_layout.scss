@@ -1,34 +1,62 @@
 html,
 body {
     margin: 0;
-    background: #FBFBFB;
+    background: #fbfbfb;
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
 }
+// Harmonisation : on garde la version cohérente pour l'animation depuis la droite
 .toast-container {
     position: fixed;
-    top: 20rem;
-    right: 1rem;
-    z-index: 1050;
+    top: 80vh;
+    right: 30px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
 }
 
 .toast {
-    min-width: 200px;
+    min-width: 220px;
+    max-width: 350px;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    position: relative;
+    right: -400px;
+    z-index: 9999;
+    opacity: 1;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s;
+    font-size: 1rem;
+    pointer-events: auto;
     margin-bottom: 1rem;
-    opacity: 0.95;
-    transition: opacity 0.5s;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    background-color: rgba(140, 255, 0, 0.436);
-    padding: 5px 10px;
-    text-align: center;
+}
+
+.toast.toast-success {
+    background: #28a745;
+}
+
+.toast.toast-error {
+    background: #dc3545;
+}
+
+.toast.toast-warning {
+    background: #ffc107;
+    color: #333;
+}
+
+.toast.toast-info {
+    background: #007bff;
 }
