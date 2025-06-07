@@ -43,11 +43,11 @@ final class HomeController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        $this->addFlash('success', sprintf('La voiture "%s" a bien été supprimée.', $car->getName()));
-
+        
         $em->remove($car);
         $em->flush();
-
+        
+        $this->addFlash('success', sprintf('La voiture "%s" a bien été supprimée.', $car->getName()));
         
         return $this->redirectToRoute('app_home');
     }
@@ -66,11 +66,12 @@ final class HomeController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $this->addFlash('success', sprintf('La voiture "%s" a bien été crée.', $car->getName()));
-
+            
             $em->persist($car);
             $em->flush();
-
+            
+            $this->addFlash('success', sprintf('La voiture "%s" a bien été crée.', $car->getName()));
+            
             return $this->redirectToRoute('app_car_show', ['id' => $car->getId()], Response::HTTP_SEE_OTHER);
         }
 
