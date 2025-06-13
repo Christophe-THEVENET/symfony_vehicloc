@@ -16,34 +16,35 @@ final class HomeController extends AbstractController
 {
     /* ******************* INDEX ******************* */
     #[Route('/', name: 'app_home', methods: ['GET'])]
-    public function index(CarRepository $repository, Request $request): Response
+    public function index(CarRepository $repository): Response
     {
         $cars = $repository->findBy([], ['id' => 'DESC']);
-        $notificationMessage = $request->query->get('notification_message');
-        $notificationType = $request->query->get('notification_type');
-
-
-        if (empty($cars)) {
-            $this->addFlash('warning', 'No cars available at the moment.');
+        
+         if (empty($cars)) {
+            return $this->json([
+                'status' => 'error',
+                'message' => 'Pas de voiture.',
+            ]);
         }
 
         return $this->render('home/index.html.twig', [
             'cars' => $cars,
-            'notification_message' => $notificationMessage,
-            'notification_type' => $notificationType
         ]);
     }
     /* ******************* SHOW******************* */
     #[Route('/{id}', name: 'app_car_show', requirements: ['id' => '\d+'], methods: ['GET'])]
-    public function show(?Car $car, Request $request): Response
+    public function show(?Car $car): Response
     {
-        $notificationMessage = $request->query->get('notification_message');
-        $notificationType = $request->query->get('notification_type');
 
+        if (empty($car)) {
+            return $this->json([
+                'status' => 'error',
+                'message' => 'Pas de voiture.',
+            ]);
+        }
+     
         return $this->render('home/car-show.html.twig', [
             'car' => $car,
-            'notification_message' => $notificationMessage,
-            'notification_type' => $notificationType
         ]);
     }
     /* ******************* DELETE ******************* */

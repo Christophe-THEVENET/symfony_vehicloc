@@ -1,12 +1,9 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-    static targets = ["result"];
     static values = {
         url: String,
-        message: String,
-        error: Boolean,
-    };
+    };  
 
     connect() {
         // Affiche le toast si un message est présent dans le sessionStorage
@@ -22,7 +19,6 @@ export default class extends Controller {
 
     async trigger(event) {
 
-        // pour ne pas envoyer le formulaire par la méthode claqsique
         event?.preventDefault();
         try {
             const response = await fetch(this.urlValue, {
@@ -41,16 +37,15 @@ export default class extends Controller {
             if (data.status === "ok") {
                 // si il y a une redirection
                 if (data.redirectUrl) {
-                    // Stocke le message dans le sessionStorage puis redirige
-                   sessionStorage.setItem(
+                    sessionStorage.setItem(
                         "toast",
                         data.message || "Action réussie"
-                    ); 
+                    );
                     window.location.href = data.redirectUrl;
                     return;
                 }
                 this.showToast(data.message || "Action réussie");
-                // Supprimer la carte voiture du DOM si suppression
+                // Si un article est proche du bouton supprimer -> supprime l'article du DOM
                 this.element.closest("article")?.remove();
             } else {
                 this.showToast(data.message || "Erreur", true);
@@ -58,9 +53,7 @@ export default class extends Controller {
         } catch (e) {
             this.showToast("Erreur technique", true);
         }
-       /*  if (this.hasResultTarget) {
-            this.resultTarget.textContent = "";
-        } */
+       
     }
 
     showToast(message, isError = false) {
