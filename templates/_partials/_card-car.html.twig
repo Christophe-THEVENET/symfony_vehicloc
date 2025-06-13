@@ -1,55 +1,50 @@
 <article>
-            <div class="mini-car-title">
-                <a href="{{path('app_car_show', {'id': car.id})}}">
-                    <h3>{{car.name}}</h3>
-                    <p>ou similaire | Saint-Étienne</p>
-                </a>
-              {#   <div>
-                    <a href="{{path('app_car_delete', {'id': car.id})}}"><img src="{{asset('./icons/trash.png')}}" alt="Supprimer" /></a>
-                </div> #}
-
-
-
-                <div>
-                    <button
-                        type="button"
-                        data-controller="notification"
-                        data-notification-url-value="{{ path('app_car_delete', {'id': car.id}) }}"
-                        data-action="click->notification#trigger"
-                        style="background: none; border: none; padding: 0; cursor: pointer;"
-                    >
-                        <img src="{{ asset('./icons/trash.png') }}" alt="Supprimer" />
-                    </button>
-                    <div data-notification-target="result"></div>
-                </div>
-
-
-
-            </div>
-            <div class="mini-car-icons">
-                <div>
-                    <img src="{{asset('./icons/persons.png')}}" alt="4 places" />
-                    <p>{{car.numberOfPlaces}} places</p>
-                </div>
-                <div>
-                    <img src="{{asset('./icons/motor.png')}}" alt="Manuelle" />
-                    {% if car.manualGearbox %}
-                        <p>Manuelle</p>
-                    {% else %}
+    
+    {# **************** FIRST ROW (title+btn) *************** #}
+    <div class="mini-car-title">
+        <div>
+            <a href="{{path('app_car_show', {'id': car.id})}}">
+                <h3>{{car.name}}</h3>
+                <p>ou similaire | Saint-Étienne</p>
+            </a>
+        </div>
+        <div>
+            <button class="delete-btn"  type="button"
+                {{ stimulus_controller('notification',{ url: path('app_car_delete', {'id': car.id})}) }}
+                {{ stimulus_action('notification','trigger', 'click') }}
+            >
+                <img src="{{ asset('./icons/trash.png') }}" alt="Supprimer" />
+            </button>
+            <div {{ stimulus_target('notification', 'result') }}></div>
+        </div>
+    </div>
+    {# **************** SECOND ROW (icons)  *************** #}
+    <div class="mini-car-icons">
+        <div>
+            <img src="{{asset('./icons/persons.png')}}" alt="4 places" />
+            <p>{{car.numberOfPlaces}} places</p>
+        </div>
+        <div>
+            <img src="{{asset('./icons/motor.png')}}" alt="Manuelle" />
+                {% if car.manualGearbox %}
+                    <p>Manuelle</p>
+                {% else %}
                     <p>Automatique</p>
-                    {% endif %}
-                </div>
-                <div>
-                    <img src="{{asset('./icons/km.png')}}" alt="km illimités" />
-                    <p>Km illimités</p>
-                </div>
-                <div>
-                    <img src="{{asset('./icons/plus.png')}}" alt="PLus" />
-                    <p>Plus</p>
-                </div>
-            </div>
-            <div class="mini-car-price">
-                <p class="price-per-day">{{car.dailyPrice}} € / jour</p>
-                <p class="price-per-month">{{car.monthlyPrice}} € / mois</p>
-            </div>
-        </article>
+                {% endif %}
+        </div>
+        <div>
+            <img src="{{asset('./icons/km.png')}}" alt="km illimités" />
+             <p>Km illimités</p>
+        </div>
+        <div>
+            <img src="{{asset('./icons/plus.png')}}" alt="PLus" />
+            <p>Plus</p>
+        </div>
+    </div>
+    {# **************** THIRD ROW (prices) *************** #}
+    <div class="mini-car-price">
+        <p class="price-per-day">{{car.dailyPrice}} € / jour</p>
+        <p class="price-per-month">{{car.monthlyPrice}} € / mois</p>
+    </div>
+
+</article>

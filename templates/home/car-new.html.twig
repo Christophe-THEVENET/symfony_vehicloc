@@ -4,12 +4,9 @@
     <section id="add">
         <a href="{{path('app_home')}}">← Retour</a>
         <h1>Ajouter une voiture</h1>
-        {{ form_start(form, {
-            attr: {
-                'data-controller': 'notification',
-                'data-notification-url-value': path('app_car_new'),
-                'data-action': 'submit->notification#trigger'
-            }
+        {{ form_start(form, {attr: 
+            stimulus_controller('notification', {url: path('app_car_new')}).toArray() | merge(
+            stimulus_action('notification', 'trigger', 'submit').toArray())
         }) }}
             <div>
                 {{ form_errors(form) }}
