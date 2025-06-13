@@ -1,58 +1,55 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <section id="add">
         <a href="{{path('app_home')}}">← Retour</a>
         <h1>Ajouter une voiture</h1>
-        
-        {{ form_start(form) }}
+        {{ form_start(form, {
+            attr: {
+                'data-controller': 'notification',
+                'data-notification-url-value': path('app_car_new'),
+                'data-action': 'submit->notification#trigger'
+            }
+        }) }}
             <div>
                 {{ form_errors(form) }}
             </div>
-
+            <div class="input">
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name) }}
+                {{ form_errors(form.name) }}
+            </div>
+            <div class="input">
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description) }}
+                {{ form_errors(form.description) }}
+            </div>
+            <div class="flex-input">
                 <div class="input">
-                    {{ form_label(form.name) }}
-                    {{ form_widget(form.name) }}
-                    {{ form_errors(form.name) }}
+                    {{ form_label(form.monthly_price) }}
+                    {{ form_widget(form.monthly_price) }}
+                    {{ form_errors(form.monthly_price) }}
                 </div>
-
                 <div class="input">
-                    {{ form_label(form.description) }}
-                    {{ form_widget(form.description) }}
-                    {{ form_errors(form.description) }}
+                    {{ form_label(form.daily_price) }}
+                    {{ form_widget(form.daily_price) }}
+                    {{ form_errors(form.daily_price) }}
                 </div>
-
-                <div class="flex-input">
-                    <div class="input">
-                        {{ form_label(form.monthly_price) }}
-                        {{ form_widget(form.monthly_price) }}
-                        {{ form_errors(form.monthly_price) }}
-                    </div>
-
-                    <div class="input">
-                        {{ form_label(form.daily_price) }}
-                        {{ form_widget(form.daily_price) }}
-                        {{ form_errors(form.daily_price) }}
-                    </div>
+            </div>
+            <div class="flex-input">
+                <div class="input">
+                    {{ form_label(form.number_of_places) }}
+                    {{ form_widget(form.number_of_places) }}
+                    {{ form_errors(form.number_of_places) }}
                 </div>
-
-                <div class="flex-input">
-                    <div class="input">
-                        {{ form_label(form.number_of_places) }}
-                        {{ form_widget(form.number_of_places) }}
-                        {{ form_errors(form.number_of_places) }}
-                    </div>
-                    <div class="input">
-                        {{ form_label(form.manual_gearbox) }}
-                        {{ form_widget(form.manual_gearbox) }}
-                        {{ form_errors(form.manual_gearbox) }}
-                    </div>
+                <div class="input">
+                    {{ form_label(form.manual_gearbox) }}
+                    {{ form_widget(form.manual_gearbox) }}
+                    {{ form_errors(form.manual_gearbox) }}
                 </div>
-                
-                <button type="submit" class="btn-add" style="cursor: pointer;">Ajouter</button>
-
+            </div>
+            <button type="submit" class="btn-add" style="cursor: pointer;">Ajouter</button>
+            <div data-notification-target="result"></div>
         {{ form_end(form) }}
-
     </section>
 {% endblock %}
