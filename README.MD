@@ -5,6 +5,7 @@
 ### Exercice 1 - Faites vos premiers pas avec Symfony 7
 
 
+
 L’entreprise VéhiLoc, spécialisée dans la location de voiture, fait appel à vous pour mettre à jour son site web.
 
  
@@ -20,6 +21,14 @@ Pour réaliser cette mise à jour, vous allez devoir rendre le site dynamique, e
 
 Pour y parvenir, Youssef vous fournit le code du site web actuel.
 
+
+## Features
+
+    * Affichage des voitures disponibles à la location;
+    * Ajout de nouvelles voitures via un formulaire (asynchrone);
+    * Suppression de voitures existantes (asynchrone).
+    * Toast de confirmation lors de l'ajout ou de la suppression d'une voiture;
+    * Utilisation d'un controleur Stimulus pour gérer les actions d'ajout/suppression de voitures et d'affichage des notifications.
 
 ## Prérequis
 

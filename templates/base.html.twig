@@ -18,13 +18,16 @@
         {% endblock %}
     </head>
     <body>
-            
+            <div data-controller="notification"></div>
 
         {% include "./_partials/header.html.twig" %}
         {% block body %}{% endblock %}
 
 
-    {% for label, messages in app.flashes %}
+    
+
+
+   {#  {% for label, messages in app.flashes %}
         {% for message in messages %}
             <script>
                 Toastify({
@@ -38,7 +41,7 @@
             </script>
         {% endfor %}
     {% endfor %} 
-
+ #}
 
 
     
