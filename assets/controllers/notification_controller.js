@@ -21,15 +21,16 @@ export default class extends Controller {
 
         event?.preventDefault();
         try {
+            const isDelete = this.urlValue.toLowerCase().includes("delete");
             const response = await fetch(this.urlValue, {
-                method: "POST",
-                headers: {
-                    "X-Requested-With": "XMLHttpRequest",
-                },
-                body:
-                    this.element.tagName === "FORM"
-                        ? new FormData(this.element)
-                        : undefined,
+            method: isDelete ? "DELETE" : "POST",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+            },
+            body:
+                this.element.tagName === "FORM" && !isDelete
+                ? new FormData(this.element)
+                : undefined,
             });
 
             const data = await response.json();
