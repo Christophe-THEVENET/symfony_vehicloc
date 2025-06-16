@@ -48,7 +48,7 @@ final class HomeController extends AbstractController
         ]);
     }
     /* ******************* DELETE ******************* */
-    #[Route('/delete/{id}', name: 'app_car_delete', requirements: ['id' => '\d+'], methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'app_car_delete', requirements: ['id' => '\d+'], methods: ['DELETE'])]
     public function remove(?Car $car, EntityManagerInterface $em): JsonResponse
     {
         if (!$car) {
