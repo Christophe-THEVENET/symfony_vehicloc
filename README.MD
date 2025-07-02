@@ -46,7 +46,7 @@ Pour y parvenir, Youssef vous fournit le code du site web actuel.
 ## Installation
 
 
-  `git clone https://github.com/Christophe-THEVENET/vehicloc.git`
+  `git clone https://github.com/Christophe-THEVENET/symfony_vehicloc.git`
 
 `cd vehicloc/`
 
