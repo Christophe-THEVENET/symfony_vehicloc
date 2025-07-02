@@ -54,7 +54,7 @@ Pour y parvenir, Youssef vous fournit le code du site web actuel.
 
 `cp .env .env.local` > configurer le DNS de la base de données
 
-`php bin/console c:c `
+`php bin/console cache:clear`
 
 `php bin/console doctrine:database:create`
 
